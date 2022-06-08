@@ -91,7 +91,8 @@ public class AdminMenu {
                     }
                 }
                 adminResource.addRoom(rooms);
-
+                AdminMenu adminMenu=new AdminMenu();
+                adminMenu.startAdmin();
             }
 
             case "5": {
