@@ -11,7 +11,7 @@ public class Customer {
             String EmailRegex="^(.+)@(.+).com$";
             Pattern pattern=Pattern.compile(EmailRegex);
             while(!pattern.matcher(Email).matches()){
-                throw new IllegalArgumentException("This is invalid Email Input");
+                throw new RuntimeException("This is invalid Email Input");
             }
         this.Email=Email;
         this.FirstName=FirstName;
