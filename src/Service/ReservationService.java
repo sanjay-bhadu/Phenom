@@ -11,26 +11,34 @@ import java.text.CollationElementIterator;
 import java.util.*;
 
 public class ReservationService  {
-    protected Collection<IRoom> rooms=new ArrayList<>();
+     Collection<IRoom> rooms=new ArrayList<IRoom>();
+
+     Collection<Reservation> reservations=new ArrayList<Reservation>();
 
     public Collection<IRoom> getRooms() {
-        return rooms;
+        return this.rooms;
     }
 
-    protected Collection<Reservation> reservations=new ArrayList<Reservation>();
+
+
     public  void addRoom(IRoom room){
-        rooms.add(room);
+        this.rooms.add(room);
+        System.out.println(room);
 
     }
+
+
     public IRoom getARoom(String RoomId)
     {
-        for(IRoom t: rooms)
+        for(IRoom t: this.rooms)
         {
             if(t.getRoomNumber().equals(RoomId))
                 return t;
         }
         return null;
     }
+
+
     public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Collection<IRoom> temp=new ArrayList<>();
         temp=FindRoom(checkInDate,checkOutDate);
@@ -47,13 +55,15 @@ public class ReservationService  {
             res.setCustomer(customer);
             res.setCheckInDate(checkInDate);
             res.setCheckOutDate(checkOutDate);
-            reservations.add(res);
+            this.reservations.add(res);
             return res;
         }
     }
+
+
     public Collection<IRoom> FindRoom(Date checkInDate,Date checkOutDate){
         Collection<IRoom> findroom=new ArrayList<>();
-        for(Reservation r: reservations)
+        for(Reservation r: this.reservations)
         {
             int temp=r.getCheckOutDate().compareTo(checkInDate);
             if(temp<=1)
@@ -63,9 +73,11 @@ public class ReservationService  {
         }
         return findroom;
     }
+
+
     public Collection<Reservation> getReservation(Customer customer){
         Collection<Reservation> res=new ArrayList<Reservation>();
-        for(Reservation temp: reservations)
+        for(Reservation temp: this.reservations)
         {
             if(temp.getCustomer()==customer){
                 res.add(temp);
@@ -73,8 +85,10 @@ public class ReservationService  {
         }
         return res;
     }
+
+
     public void printAllReservation() {
-        for (Reservation r : reservations) {
+        for (Reservation r : this.reservations) {
             System.out.println(r);
         }
     }

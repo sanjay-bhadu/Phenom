@@ -11,36 +11,48 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 public class HotelResource {
-    CustomerService customerService=new CustomerService();
-    ReservationService reservationService=new ReservationService();
+    CustomerService customerService;
+    ReservationService reservationService;
+
+
     public Customer getCustomer(String Email){
         String EmailRegex="^(.+)@(.+).com$";
         Pattern pattern=Pattern.compile(EmailRegex);
         while(!pattern.matcher(Email).matches()){
             throw new RuntimeException("This is invalid Email Input");
         }
-        Customer customer= customerService.getCustomer(Email);
+        Customer customer= this.customerService.getCustomer(Email);
         return customer;
     }
+
+
     public void createACustomer(String FirstName,String LastName,String Email)
     {
-        customerService.addCustomer(FirstName,LastName,Email);
+        this.customerService.addCustomer(FirstName,LastName,Email);
     }
+
+
     public IRoom getRoom(String RoomNumber)
     {
-        return reservationService.getARoom(RoomNumber);
+        return this.reservationService.getARoom(RoomNumber);
     }
+
+
     public Reservation bookARoom(String Email, String RoomNumber, Date checkInDate,Date checkOutDate){
-        IRoom room=reservationService.getARoom(RoomNumber);
+        IRoom room=this.reservationService.getARoom(RoomNumber);
         Customer customer=getCustomer(Email);
-        return reservationService.reserveARoom(customer,room,checkInDate,checkOutDate);
+        return this.reservationService.reserveARoom(customer,room,checkInDate,checkOutDate);
 
     }
+
+
     public Collection<Reservation> getCustomerReservation(String Email)
     {
-        Customer customer=customerService.getCustomer(Email);
-        return reservationService.getReservation(customer);
+        Customer customer=this.customerService.getCustomer(Email);
+        return this.reservationService.getReservation(customer);
     }
+
+
     public Collection<IRoom> findARoom(Date checkInDate,Date checkOutDate){
         return reservationService.FindRoom(checkInDate,checkOutDate);
     }

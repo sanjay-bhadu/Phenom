@@ -29,8 +29,13 @@ public class AdminMenu {
         Scanner scan=new Scanner(System.in);
         String action=scan.nextLine();
         switch (action) {
+
+
             case "1": {
-                Collection<Customer> customers=adminResource.getAllCustomers();
+
+
+                Collection<Customer> customers=new ArrayList<>();
+                       customers= adminResource.getAllCustomers();
                 for(Customer customer: customers)
                     System.out.println(customer);
                 AdminMenu adminMenu=new AdminMenu();
@@ -39,21 +44,33 @@ public class AdminMenu {
 
             }
             case "2": {
-                Collection<IRoom> rooms=adminResource.getAllRoom();
+
+
+                Collection<IRoom> rooms=new ArrayList<IRoom>();
+                        rooms=adminResource.getAllRoom();
                 for(IRoom room: rooms)
                     System.out.println(room);
                 AdminMenu adminMenu=new AdminMenu();
                 adminMenu.startAdmin();
+
                 break;
+
+
             }
             case "3": {
+
+
                 adminResource.DisplayAllReservation();
                 AdminMenu adminMenu=new AdminMenu();
                 adminMenu.startAdmin();
-                break;
 
+
+                break;
             }
+
+
             case "4": {
+
                 List<IRoom> rooms=new ArrayList<>();
                 boolean r=true;
                 while(r)
@@ -87,12 +104,18 @@ public class AdminMenu {
                             roomtype=roomType.DOUBLE;
                         IRoom room=new Room(roomnumber,roomprice,roomtype);
                         rooms.add(room);
-
+                        String temp=scan.nextLine();//this is to avoid auto closure.. due to use to scan.nextInt() and scan.nextLine() in row.
                     }
+                    else{
+                        break;
+                    }
+
                 }
                 adminResource.addRoom(rooms);
                 AdminMenu adminMenu=new AdminMenu();
                 adminMenu.startAdmin();
+
+                break;
             }
 
             case "5": {
@@ -100,6 +123,8 @@ public class AdminMenu {
                 menu.startActions();
                 break;
             }
+            default:
+                throw new IllegalStateException("Unexpected value: " + action);
         }
     }
     

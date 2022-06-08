@@ -58,16 +58,16 @@ public class MainMenu {
                 System.out.println("Do you any account with us");
                 System.out.println("Press y for yes and n for no");
                 String response=scan.nextLine();
-                while(!response.equals("y") || !response.equals("n"))
+                while(!response.equalsIgnoreCase("y") || !response.equalsIgnoreCase("n"))
                 {
-                    if(response.equals("y") || response.equals("n"))
+                    if(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n"))
                         break;
                     System.out.println("Invalid Input!!!.... Enter again");
                     response=scan.nextLine();
                 }
 
                 String Email;
-                if(response=="y")
+                if(response.equalsIgnoreCase("y"))
                 {
                     System.out.println("please enter Email id");
                     Email=scan.nextLine();

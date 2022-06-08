@@ -5,4 +5,6 @@ public interface IRoom {
     public Double getRoomPrice();
     public roomType getRoomType();
     public boolean isFree();
+    @Override
+    public String toString();
 }
