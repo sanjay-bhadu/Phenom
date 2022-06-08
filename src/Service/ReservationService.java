@@ -11,7 +11,7 @@ import java.text.CollationElementIterator;
 import java.util.*;
 
 public class ReservationService  {
-    protected Collection<IRoom> rooms=new HashSet<IRoom>();
+    protected Collection<IRoom> rooms=new ArrayList<>();
 
     public Collection<IRoom> getRooms() {
         return rooms;
@@ -32,7 +32,7 @@ public class ReservationService  {
         return null;
     }
     public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
-        Collection<IRoom> temp=new HashSet<>();
+        Collection<IRoom> temp=new ArrayList<>();
         temp=FindRoom(checkInDate,checkOutDate);
         if(temp.isEmpty())
         {
@@ -52,7 +52,7 @@ public class ReservationService  {
         }
     }
     public Collection<IRoom> FindRoom(Date checkInDate,Date checkOutDate){
-        Collection<IRoom> findroom=new HashSet<IRoom>();
+        Collection<IRoom> findroom=new ArrayList<>();
         for(Reservation r: reservations)
         {
             int temp=r.getCheckOutDate().compareTo(checkInDate);
