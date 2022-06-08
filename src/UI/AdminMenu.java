@@ -1,4 +1,4 @@
-package api;
+package UI;
 
 import java.util.Scanner;
 
@@ -20,7 +20,6 @@ public class AdminMenu {
         System.out.println("Enter your Choice");
         Scanner scan=new Scanner(System.in);
         String action=scan.nextLine();
-        scan.close();
         switch (action) {
             case "1": {
 
@@ -36,11 +35,8 @@ public class AdminMenu {
             }
 
             case "5": {
-
-            }
-            case "6" :
-            {
-
+                MainMenu menu=new MainMenu();
+                menu.startActions();
             }
         }
     }

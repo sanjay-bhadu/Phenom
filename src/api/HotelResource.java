@@ -25,11 +25,11 @@ public class HotelResource {
         return reservationService.getARoom(RoomNumber);
     }
     public Reservation bookARoom(String Email, String RoomNumber, Date checkInDate,Date checkOutDate){
-        return reservationService.reserveARoom(Email,RoomNumber,checkInDate,checkOutDate);
+        return null;
     }
     public Collection<Reservation> getCustomerReservation(String Email)
     {
-        return reservationService.get
+        return null;
     }
     public Collection<IRoom> findARoom(Date checkInDate,Date checkOutDate){
         return reservationService.FindRoom(checkInDate,checkOutDate);

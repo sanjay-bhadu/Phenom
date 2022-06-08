@@ -11,8 +11,13 @@ import java.text.CollationElementIterator;
 import java.util.*;
 
 public class ReservationService  {
-    Collection<IRoom> rooms=new HashSet<>();
-    Collection<Reservation> reservations=new ArrayList<Reservation>();
+    protected Collection<IRoom> rooms=new HashSet<IRoom>();
+
+    public Collection<IRoom> getRooms() {
+        return rooms;
+    }
+
+    protected Collection<Reservation> reservations=new ArrayList<Reservation>();
     public  void addRoom(IRoom room){
         rooms.add(room);
 
