@@ -12,6 +12,7 @@ public class CustomerService {
     public void addCustomer(String FirstName,String LastName,String Email){
         Customer temp=new Customer(FirstName,LastName,Email);
         customer.add(temp);
+        System.out.println(temp);
 
     }
     public Customer getCustomer(String Email){

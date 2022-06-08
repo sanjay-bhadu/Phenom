@@ -39,7 +39,7 @@ public class HotelResource {
     public Collection<Reservation> getCustomerReservation(String Email)
     {
         Customer customer=customerService.getCustomer(Email);
-        return null;
+        return reservationService.getReservation(customer);
     }
     public Collection<IRoom> findARoom(Date checkInDate,Date checkOutDate){
         return reservationService.FindRoom(checkInDate,checkOutDate);

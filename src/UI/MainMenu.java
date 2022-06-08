@@ -1,6 +1,7 @@
 package UI;
 
 import api.HotelResource;
+import model.Customer;
 import model.IRoom;
 import model.Reservation;
 
@@ -89,7 +90,9 @@ public class MainMenu {
             case "2": {
                 System.out.println("Please Enter your Email");
                 String email=scan.nextLine();
-                hotelResource.getCustomerReservation(email);
+                Collection<Reservation> res=hotelResource.getCustomerReservation(email);
+                for(Reservation r: res)
+                    System.out.println(r);
                 MainMenu menu=new MainMenu();
                 menu.startActions();
                 break;
@@ -102,6 +105,8 @@ public class MainMenu {
                     System.out.println("Please Enter your Email: name@domain.com");
                     String Email = scan.nextLine();
                     hotelResource.createACustomer(FirstName, LastName, Email);
+                    MainMenu menu=new MainMenu();
+                    menu.startActions();
 
                 break;
             }
