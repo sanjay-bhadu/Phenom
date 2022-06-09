@@ -34,13 +34,14 @@ public class MainMenu {
         switch (action1) {
             case "1": {
                 System.out.println("Please Enter checkIN date in dd/mm/yy");
-                Date checkIn;
+                Date checkIn = null;
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 String date=scan.nextLine();
                 try {
                     checkIn=format.parse(date);
                 } catch (ParseException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getLocalizedMessage());
+                    System.out.println("please Enter a Valid CheckIn Date");
                 }
                 Date checkOut;
                 System.out.println("Enter the checkout Date");

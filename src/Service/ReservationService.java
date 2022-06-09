@@ -43,7 +43,9 @@ public class ReservationService  {
 
    static public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
             Reservation res=new Reservation();
-            rooms.remove(room);
+            //use iterator for removing reserved room.
+       // i used iterator but ittelij idea suggested the functional programming.
+       rooms.removeIf(r -> r.equals(room));
             res.setRoom(room);
             res.setCustomer(customer);
             res.setCheckInDate(checkInDate);
@@ -60,7 +62,7 @@ public class ReservationService  {
                 if (r != null) {
                     int temp = r.getCheckOutDate().compareTo(checkInDate);
                     int temp2=r.getCheckInDate().compareTo(checkOutDate);
-                    if (temp < 1 || temp2>1) {
+                    if (temp < 0 && temp2 < 0) {
                         available.add(r.getRoom());
                     }
                 }
