@@ -9,6 +9,7 @@ import model.roomType;
 
 import java.util.*;
 
+
 public class AdminMenu {
     public static void startAdmin() {
         boolean loop = true;
@@ -53,11 +54,7 @@ public class AdminMenu {
 
                 }
                 case "3": {
-
-
                     AdminResource.DisplayAllReservation();
-
-
                     break;
                 }
 
@@ -94,22 +91,31 @@ public class AdminMenu {
                             IRoom room = new Room(roomnumber, roomprice, roomtype);
                             rooms.add(room);
                             String temp = scan.nextLine();//this is to avoid auto closure.. due to use to scan.nextInt() and scan.nextLine() in row.
-                        } else {
-                            break;
+                        }
+                        else if(response.equalsIgnoreCase("n"))
+                        {
+                            r=false;
+                        }
+                        else{
+
+                        }
                         }
 
-                    }
                     AdminResource.addRoom(rooms);
 
                     break;
+
                 }
 
                 case "5": {
                     MainMenu.startActions();
                     break;
                 }
-                default:
+                default: {
+                    System.out.println("Invlaid Input!!!.. Please Enter Again");
+                    AdminMenu.startAdmin();
                     throw new IllegalStateException("Unexpected value: " + action);
+                }
             }
         }
     }

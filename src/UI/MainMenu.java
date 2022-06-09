@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainMenu {
     public static void startActions(){
@@ -69,8 +71,14 @@ public class MainMenu {
                 String Email;
                 if(response.equalsIgnoreCase("y"))
                 {
-                    System.out.println("please enter Email id");
-                    Email=scan.nextLine();
+                    String emailRegex = "^(.+)@(.+).(.+)$";
+                    Pattern pattern = Pattern.compile(emailRegex);
+                    Email = scan.nextLine();
+                    while(!pattern.matcher(Email).matches())
+                    {
+                        System.out.println("Invalid Input!!!");
+                        Email=scan.nextLine();
+                    }
                 }
                 else{
                     System.out.println("Enter your first Name");
@@ -78,7 +86,14 @@ public class MainMenu {
                     System.out.println("Please Enter your Last Name");
                     String LastName = scan.nextLine();
                     System.out.println("Please Enter your Email: name@domain.com");
+                    String emailRegex = "^(.+)@(.+).(.+)$";
+                    Pattern pattern = Pattern.compile(emailRegex);
                     Email = scan.nextLine();
+                    while(!pattern.matcher(Email).matches())
+                    {
+                        System.out.println("Invalid Input!!!");
+                        Email=scan.nextLine();
+                    }
                     HotelResource.createACustomer(FirstName, LastName, Email);
                 }
                 Reservation reservation=HotelResource.bookARoom(Email,room,checkIn,checkOut);
@@ -100,7 +115,14 @@ public class MainMenu {
                     System.out.println("Please Enter your Last Name");
                     String LastName = scan.nextLine();
                     System.out.println("Please Enter your Email: name@domain.com");
+                    String emailRegex = "^(.+)@(.+).(.+)$";
+                    Pattern pattern = Pattern.compile(emailRegex);
                     String Email = scan.nextLine();
+                    while(!pattern.matcher(Email).matches())
+                    {
+                        System.out.println("Invalid Input!!!");
+                        Email=scan.nextLine();
+                    }
                     HotelResource.createACustomer(FirstName, LastName, Email);
 
                 break;
@@ -112,6 +134,11 @@ public class MainMenu {
 
             case "5": {
                 System.exit(0);
+            }
+            default:{
+                System.out.println("Invalid Input!!! please try again");
+                MainMenu.startActions();
+                break;
             }
         }
     }
