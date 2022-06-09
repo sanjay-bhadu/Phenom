@@ -12,23 +12,24 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class MainMenu {
-    public MainMenu(){
-        System.out.println("Welcome to the Hotel Reservation Application");
-        System.out.println();
-        System.out.println("--------------------------------------------");
-        System.out.println("1. Find and reserve a room");
-        System.out.println("2. See my reservations");
-        System.out.println("3. Create an account");
-        System.out.println("4. Admin Menu");
-        System.out.println("5. Exit");
-        System.out.println();
-        System.out.println("-------------------------------------------");
-    }
     public void startActions(){
+        HotelResource hotelResource=new HotelResource();
+        boolean loop=true;
+        while(loop)
+        {
+            System.out.println("Welcome to the Hotel Reservation Application");
+            System.out.println();
+            System.out.println("--------------------------------------------");
+            System.out.println("1. Find and reserve a room");
+            System.out.println("2. See my reservations");
+            System.out.println("3. Create an account");
+            System.out.println("4. Admin Menu");
+            System.out.println("5. Exit");
+            System.out.println();
+            System.out.println("-------------------------------------------");
         System.out.println("Enter Your choice");
         Scanner scan=new Scanner(System.in);
         String action1 =scan.nextLine();
-        HotelResource hotelResource = new HotelResource();
         switch (action1) {
             case "1": {
                 System.out.println("Please Enter checkIN date in dd/mm/yy");
@@ -83,9 +84,7 @@ public class MainMenu {
                 }
                 Reservation reservation=hotelResource.bookARoom(Email,roomid,checkIn,checkOut);
                 System.out.println(reservation);
-
-                MainMenu menu=new MainMenu();
-                menu.startActions();
+                break;
             }
             case "2": {
                 System.out.println("Please Enter your Email");
@@ -93,8 +92,7 @@ public class MainMenu {
                 Collection<Reservation> res=hotelResource.getCustomerReservation(email);
                 for(Reservation r: res)
                     System.out.println(r);
-                MainMenu menu=new MainMenu();
-                menu.startActions();
+
                 break;
             }
             case "3": {
@@ -105,8 +103,6 @@ public class MainMenu {
                     System.out.println("Please Enter your Email: name@domain.com");
                     String Email = scan.nextLine();
                     hotelResource.createACustomer(FirstName, LastName, Email);
-                    MainMenu menu=new MainMenu();
-                    menu.startActions();
 
                 break;
             }
@@ -120,6 +116,7 @@ public class MainMenu {
                 System.exit(0);
             }
         }
+    }
     }
 
 }
