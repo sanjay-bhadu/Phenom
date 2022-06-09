@@ -11,29 +11,29 @@ import java.util.List;
 
 public class AdminResource {
 
-//Returns the customer Details by giving Email as input.
+   //GET CUSTOMER.
     static public Customer getCustomer(String Email){
         return CustomerService.getCustomer(Email);
     }
 
-//Addition of room.
+   // ADD ROOM
     static public void addRoom(List<IRoom> room) {
         for (IRoom r : room){
             ReservationService.addRoom(r);
     }
     }
 
-//for getting all rooms in form of collection;
+      //GET ALL ROOMS
     static public Collection<IRoom> getAllRoom(){
         return ReservationService.getRooms();
     }
 
-
+     //GET ALL CUSTOMERS
     static public Collection<Customer> getAllCustomers(){
         return CustomerService.getAllCustomers();
     }
 
-
+    //DISPLAY ALL RESERVATIONS;
     static public void DisplayAllReservation(){
         ReservationService.printAllReservation();
     }

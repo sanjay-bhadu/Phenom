@@ -19,7 +19,7 @@ public class Reservation {
     }
 
     public void setCustomer(Customer customer) {
-        this.customer = customer;
+        this.customer=customer;
     }
 
     private Date CheckInDate;

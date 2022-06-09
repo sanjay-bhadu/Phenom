@@ -1,19 +1,15 @@
 package Service;
 
-import api.AdminResource;
 import model.Customer;
 import model.IRoom;
 import model.Reservation;
-import model.Room;
 
-import java.net.CookieHandler;
-import java.text.CollationElementIterator;
 import java.util.*;
 
 public class ReservationService  {
-     static Collection<IRoom> rooms=new ArrayList<IRoom>();
+     static Collection<IRoom> rooms=new ArrayList<>();
 
-     static Collection<Reservation> reservations=new ArrayList<Reservation>();
+     static Collection<Reservation> reservations=new ArrayList<>();
 
     static public Collection<IRoom> getRooms() {
         return rooms;
@@ -40,43 +36,34 @@ public class ReservationService  {
 
 
    static public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
-        Collection<IRoom> temp=new ArrayList<>();
-        temp=FindRoom(checkInDate,checkOutDate);
-        if(temp.isEmpty())
-        {
-            return null;
-        }
-        else{
             Reservation res=new Reservation();
-            for(IRoom r: temp){
-                res.setRoom(r);
-                break;
-            }
+            rooms.remove(room);
+            res.setRoom(room);
             res.setCustomer(customer);
             res.setCheckInDate(checkInDate);
             res.setCheckOutDate(checkOutDate);
             reservations.add(res);
             return res;
-        }
     }
 
 
     public static Collection<IRoom> FindRoom(Date checkInDate, Date checkOutDate){
-        Collection<IRoom> findroom=new ArrayList<>();
+        Collection<IRoom> available=new ArrayList<>();
         for(Reservation r: reservations)
         {
             int temp=r.getCheckOutDate().compareTo(checkInDate);
             if(temp<=1)
             {
-                findroom.add(r.getRoom());
+                available.add(r.getRoom());
             }
         }
-        return findroom;
+        available.addAll(rooms);
+        return available;
     }
 
 
     public static Collection<Reservation> getReservation(Customer customer){
-        Collection<Reservation> res=new ArrayList<Reservation>();
+        Collection<Reservation> res=new ArrayList<>();
         for(Reservation temp: reservations)
         {
             if(temp.getCustomer()==customer){

@@ -54,6 +54,7 @@ public class MainMenu {
                     System.out.println(r);
                 }
                 String roomid=scan.nextLine();
+                IRoom room=HotelResource.getRoom(roomid);
                 System.out.println("Do you any account with us");
                 System.out.println("Press y for yes and n for no");
                 String response=scan.nextLine();
@@ -80,7 +81,7 @@ public class MainMenu {
                     Email = scan.nextLine();
                     HotelResource.createACustomer(FirstName, LastName, Email);
                 }
-                Reservation reservation=HotelResource.bookARoom(Email,roomid,checkIn,checkOut);
+                Reservation reservation=HotelResource.bookARoom(Email,room,checkIn,checkOut);
                 System.out.println(reservation);
                 break;
             }

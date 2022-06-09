@@ -12,13 +12,8 @@ import java.util.regex.Pattern;
 
 public class HotelResource {
 
-
+    //GET CUSTOMER
     static public Customer getCustomer(String Email){
-        String EmailRegex="^(.+)@(.+).com$";
-        Pattern pattern=Pattern.compile(EmailRegex);
-        while(!pattern.matcher(Email).matches()){
-            throw new RuntimeException("This is invalid Email Input");
-        }
         Customer customer= CustomerService.getCustomer(Email);
         return customer;
     }
@@ -36,8 +31,7 @@ public class HotelResource {
     }
 
 
-    static public Reservation bookARoom(String Email, String RoomNumber, Date checkInDate,Date checkOutDate){
-        IRoom room= ReservationService.getARoom(RoomNumber);
+    static public Reservation bookARoom(String Email, IRoom room, Date checkInDate,Date checkOutDate){
         Customer customer=getCustomer(Email);
         return ReservationService.reserveARoom(customer,room,checkInDate,checkOutDate);
 
