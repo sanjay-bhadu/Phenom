@@ -2,6 +2,7 @@ package UI;
 
 import Service.CustomerService;
 import api.AdminResource;
+import api.HotelResource;
 import model.Customer;
 import model.IRoom;
 import model.Room;
@@ -36,6 +37,8 @@ public class AdminMenu {
 
                     Collection<Customer> customers = new ArrayList<>();
                     customers = AdminResource.getAllCustomers();
+                    if(customers.isEmpty())
+                        System.out.println("Currently no customers are there");
                     for (Customer customer : customers)
                         System.out.println(customer);
                     break;
@@ -46,6 +49,8 @@ public class AdminMenu {
 
                     Collection<IRoom> rooms = new ArrayList<IRoom>();
                     rooms = AdminResource.getAllRoom();
+                    if(rooms.isEmpty())
+                        System.out.println("Currently No Rooms in Hotel");
                     for (IRoom room : rooms)
                         System.out.println(room);
 
@@ -69,6 +74,13 @@ public class AdminMenu {
                         if (response.equalsIgnoreCase("y")) {
                             System.out.println("Enter RoomNumber ");
                             String roomnumber = scan.nextLine();
+                            IRoom tem= HotelResource.getRoom(roomnumber);
+                            while(tem!=null)
+                            {
+                                System.out.println("Room Already Exist .. Please Type a different Room number");
+                                roomnumber=scan.nextLine();
+                                tem= HotelResource.getRoom(roomnumber);
+                            }
                             System.out.println("Enter Room Price");
                             Double roomprice;
                             while (!scan.hasNextDouble()) {
@@ -90,6 +102,7 @@ public class AdminMenu {
                                 roomtype = roomType.DOUBLE;
                             IRoom room = new Room(roomnumber, roomprice, roomtype);
                             rooms.add(room);
+                            AdminResource.addRoom(rooms);
                             String temp = scan.nextLine();//this is to avoid auto closure.. due to use to scan.nextInt() and scan.nextLine() in row.
                         }
                         else if(response.equalsIgnoreCase("n"))
@@ -101,7 +114,6 @@ public class AdminMenu {
                         }
                         }
 
-                    AdminResource.addRoom(rooms);
 
                     break;
 

@@ -12,7 +12,13 @@ public class ReservationService  {
      static Collection<Reservation> reservations=new ArrayList<>();
 
     static public Collection<IRoom> getRooms() {
-        return rooms;
+        Collection<IRoom> allrooms=new HashSet<>();
+        for(Reservation r: reservations)
+        {
+            allrooms.add(r.getRoom());
+        }
+        allrooms.addAll(rooms);
+        return allrooms;
     }
 
 
@@ -48,13 +54,16 @@ public class ReservationService  {
 
 
     public static Collection<IRoom> FindRoom(Date checkInDate, Date checkOutDate){
-        Collection<IRoom> available=new ArrayList<>();
-        for(Reservation r: reservations)
-        {
-            int temp=r.getCheckOutDate().compareTo(checkInDate);
-            if(temp<=1)
-            {
-                available.add(r.getRoom());
+        Collection<IRoom> available=new HashSet<>();
+        if(!reservations.isEmpty()) {
+            for (Reservation r : reservations) {
+                if (r != null) {
+                    int temp = r.getCheckOutDate().compareTo(checkInDate);
+                    int temp2=r.getCheckInDate().compareTo(checkOutDate);
+                    if (temp < 1 || temp2>1) {
+                        available.add(r.getRoom());
+                    }
+                }
             }
         }
         available.addAll(rooms);
@@ -75,8 +84,12 @@ public class ReservationService  {
 
 
     public static void printAllReservation() {
-        for (Reservation r : reservations) {
-            System.out.println(r);
+        if(reservations.isEmpty())
+            System.out.println("Currently No Reservations");
+        else {
+            for (Reservation r : reservations) {
+                System.out.println(r);
+            }
         }
     }
 }

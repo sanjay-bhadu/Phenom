@@ -51,6 +51,42 @@ public class MainMenu {
                     throw new RuntimeException(e);
                 }
                 Collection<IRoom> availableRoom= HotelResource.findARoom(checkIn,checkOut);
+                while(availableRoom.isEmpty())
+                {
+                    System.out.println("Sorry At Moment No Rooms are available");
+                    System.out.println();
+                    System.out.println("Would you like to add reservation for another day");
+                    System.out.println("Press y(Yes) and n(N0)");
+                    String resp=scan.nextLine();
+                    while(!resp.equalsIgnoreCase("y") || !resp.equalsIgnoreCase("n"))
+                    {
+                        if(resp.equalsIgnoreCase("y") || resp.equalsIgnoreCase("n"))
+                            break;
+                        System.out.println("Invalid Input!!!.... Enter again");
+                        resp=scan.nextLine();
+                    }
+                    if(resp.equalsIgnoreCase("y"))
+                    {
+                        System.out.println("Please Enter checkIN date in dd/mm/yy");
+                        date=scan.nextLine();
+                        try {
+                            checkIn=format.parse(date);
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+                        System.out.println("Enter the checkout Date");
+                        date=scan.nextLine();
+                        try {
+                            checkOut=format.parse(date);
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+                        availableRoom= HotelResource.findARoom(checkIn,checkOut);
+                    }
+                    else{
+                        break;
+                    }
+                }
                 for(IRoom r: availableRoom)
                 {
                     System.out.println(r);
@@ -67,10 +103,10 @@ public class MainMenu {
                     System.out.println("Invalid Input!!!.... Enter again");
                     response=scan.nextLine();
                 }
-
                 String Email;
                 if(response.equalsIgnoreCase("y"))
                 {
+                    System.out.println("Enter your registered Email address");
                     String emailRegex = "^(.+)@(.+).(.+)$";
                     Pattern pattern = Pattern.compile(emailRegex);
                     Email = scan.nextLine();
@@ -78,6 +114,20 @@ public class MainMenu {
                     {
                         System.out.println("Invalid Input!!!");
                         Email=scan.nextLine();
+                    }
+                    Customer customer=HotelResource.getCustomer(Email);
+                    while(customer==null)
+                    {
+                        System.out.println("Enter the correct Email id as this is not present in database");
+                        emailRegex = "^(.+)@(.+).(.+)$";
+                        pattern = Pattern.compile(emailRegex);
+                        Email = scan.nextLine();
+                        while(!pattern.matcher(Email).matches())
+                        {
+                            System.out.println("Invalid Input!!!");
+                            Email=scan.nextLine();
+                        }
+                        customer=HotelResource.getCustomer(Email);
                     }
                 }
                 else{
