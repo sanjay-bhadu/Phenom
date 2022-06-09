@@ -75,9 +75,9 @@ public class ReservationService  {
     }
 
 
-    public Collection<Reservation> getReservation(Customer customer){
+    public static Collection<Reservation> getReservation(Customer customer){
         Collection<Reservation> res=new ArrayList<Reservation>();
-        for(Reservation temp: this.reservations)
+        for(Reservation temp: reservations)
         {
             if(temp.getCustomer()==customer){
                 res.add(temp);
@@ -87,8 +87,8 @@ public class ReservationService  {
     }
 
 
-    public void printAllReservation() {
-        for (Reservation r : this.reservations) {
+    public static void printAllReservation() {
+        for (Reservation r : reservations) {
             System.out.println(r);
         }
     }

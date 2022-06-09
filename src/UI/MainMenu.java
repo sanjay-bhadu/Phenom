@@ -13,8 +13,6 @@ import java.util.Scanner;
 
 public class MainMenu {
     public static void startActions(){
-        AdminMenu adminMenu=new AdminMenu();
-        HotelResource hotelResource=new HotelResource();
         boolean loop=true;
         while(loop)
         {
@@ -50,13 +48,12 @@ public class MainMenu {
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
-                Collection<IRoom> availableRoom=hotelResource.findARoom(checkIn,checkOut);
+                Collection<IRoom> availableRoom= HotelResource.findARoom(checkIn,checkOut);
                 for(IRoom r: availableRoom)
                 {
                     System.out.println(r);
                 }
                 String roomid=scan.nextLine();
-                hotelResource.getRoom(roomid);
                 System.out.println("Do you any account with us");
                 System.out.println("Press y for yes and n for no");
                 String response=scan.nextLine();
@@ -81,16 +78,16 @@ public class MainMenu {
                     String LastName = scan.nextLine();
                     System.out.println("Please Enter your Email: name@domain.com");
                     Email = scan.nextLine();
-                    hotelResource.createACustomer(FirstName, LastName, Email);
+                    HotelResource.createACustomer(FirstName, LastName, Email);
                 }
-                Reservation reservation=hotelResource.bookARoom(Email,roomid,checkIn,checkOut);
+                Reservation reservation=HotelResource.bookARoom(Email,roomid,checkIn,checkOut);
                 System.out.println(reservation);
                 break;
             }
             case "2": {
                 System.out.println("Please Enter your Email");
                 String email=scan.nextLine();
-                Collection<Reservation> res=hotelResource.getCustomerReservation(email);
+                Collection<Reservation> res=HotelResource.getCustomerReservation(email);
                 for(Reservation r: res)
                     System.out.println(r);
 
@@ -103,12 +100,12 @@ public class MainMenu {
                     String LastName = scan.nextLine();
                     System.out.println("Please Enter your Email: name@domain.com");
                     String Email = scan.nextLine();
-                    hotelResource.createACustomer(FirstName, LastName, Email);
+                    HotelResource.createACustomer(FirstName, LastName, Email);
 
                 break;
             }
             case "4": {
-                adminMenu.startAdmin();
+                AdminMenu.startAdmin();
                 break;
             }
 

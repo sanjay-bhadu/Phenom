@@ -11,7 +11,6 @@ import java.util.*;
 
 public class AdminMenu {
     public static void startAdmin() {
-        AdminResource adminResource = new AdminResource();
         boolean loop = true;
         while (loop) {
             System.out.println("Admin Menu");
@@ -35,7 +34,7 @@ public class AdminMenu {
 
 
                     Collection<Customer> customers = new ArrayList<>();
-                    customers = adminResource.getAllCustomers();
+                    customers = AdminResource.getAllCustomers();
                     for (Customer customer : customers)
                         System.out.println(customer);
                     break;
@@ -45,7 +44,7 @@ public class AdminMenu {
 
 
                     Collection<IRoom> rooms = new ArrayList<IRoom>();
-                    rooms = adminResource.getAllRoom();
+                    rooms = AdminResource.getAllRoom();
                     for (IRoom room : rooms)
                         System.out.println(room);
 
@@ -56,7 +55,7 @@ public class AdminMenu {
                 case "3": {
 
 
-                    adminResource.DisplayAllReservation();
+                    AdminResource.DisplayAllReservation();
 
 
                     break;
@@ -100,7 +99,7 @@ public class AdminMenu {
                         }
 
                     }
-                    adminResource.addRoom(rooms);
+                    AdminResource.addRoom(rooms);
 
                     break;
                 }
