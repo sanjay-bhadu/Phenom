@@ -11,26 +11,26 @@ import java.text.CollationElementIterator;
 import java.util.*;
 
 public class ReservationService  {
-     Collection<IRoom> rooms=new ArrayList<IRoom>();
+     static Collection<IRoom> rooms=new ArrayList<IRoom>();
 
-     Collection<Reservation> reservations=new ArrayList<Reservation>();
+     static Collection<Reservation> reservations=new ArrayList<Reservation>();
 
-    public Collection<IRoom> getRooms() {
-        return this.rooms;
+    static public Collection<IRoom> getRooms() {
+        return rooms;
     }
 
 
 
-    public  void addRoom(IRoom room){
-        this.rooms.add(room);
+    static public  void addRoom(IRoom room){
+        rooms.add(room);
         System.out.println(room);
 
     }
 
 
-    public IRoom getARoom(String RoomId)
+    static public IRoom getARoom(String RoomId)
     {
-        for(IRoom t: this.rooms)
+        for(IRoom t: rooms)
         {
             if(t.getRoomNumber().equals(RoomId))
                 return t;
@@ -39,7 +39,7 @@ public class ReservationService  {
     }
 
 
-    public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
+   static public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Collection<IRoom> temp=new ArrayList<>();
         temp=FindRoom(checkInDate,checkOutDate);
         if(temp.isEmpty())
@@ -55,15 +55,15 @@ public class ReservationService  {
             res.setCustomer(customer);
             res.setCheckInDate(checkInDate);
             res.setCheckOutDate(checkOutDate);
-            this.reservations.add(res);
+            reservations.add(res);
             return res;
         }
     }
 
 
-    public Collection<IRoom> FindRoom(Date checkInDate,Date checkOutDate){
+    public static Collection<IRoom> FindRoom(Date checkInDate, Date checkOutDate){
         Collection<IRoom> findroom=new ArrayList<>();
-        for(Reservation r: this.reservations)
+        for(Reservation r: reservations)
         {
             int temp=r.getCheckOutDate().compareTo(checkInDate);
             if(temp<=1)

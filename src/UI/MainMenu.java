@@ -12,7 +12,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class MainMenu {
-    public void startActions(){
+    public static void startActions(){
+        AdminMenu adminMenu=new AdminMenu();
         HotelResource hotelResource=new HotelResource();
         boolean loop=true;
         while(loop)
@@ -107,7 +108,6 @@ public class MainMenu {
                 break;
             }
             case "4": {
-                AdminMenu adminMenu=new AdminMenu();
                 adminMenu.startAdmin();
                 break;
             }

@@ -8,35 +8,35 @@ import model.IRoom;
 import java.util.Collection;
 import java.util.List;
 
-public class AdminResource {
-    CustomerService customerService;
+import static api.HotelResource.customerService;
+import static api.HotelResource.reservationService;
 
-    ReservationService reservationService;
+public class AdminResource {
 
 //Returns the customer Details by giving Email as input.
-    public Customer getCustomer(String Email){
+    static public Customer getCustomer(String Email){
         return customerService.getCustomer(Email);
     }
 
 //Addition of room.
-    public void addRoom(List<IRoom> room) {
+    static public void addRoom(List<IRoom> room) {
         for (IRoom r : room){
             reservationService.addRoom(r);
     }
     }
 
 //for getting all rooms in form of collection;
-    public Collection<IRoom> getAllRoom(){
+    static public Collection<IRoom> getAllRoom(){
         return reservationService.getRooms();
     }
 
 
-    public Collection<Customer> getAllCustomers(){
+    static public Collection<Customer> getAllCustomers(){
         return customerService.getAllCustomers();
     }
 
 
-    public void DisplayAllReservation(){
+    static public void DisplayAllReservation(){
         reservationService.printAllReservation();
     }
 

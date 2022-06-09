@@ -10,7 +10,7 @@ import model.roomType;
 import java.util.*;
 
 public class AdminMenu {
-    public void startAdmin() {
+    public static void startAdmin() {
         AdminResource adminResource = new AdminResource();
         boolean loop = true;
         while (loop) {
@@ -106,8 +106,7 @@ public class AdminMenu {
                 }
 
                 case "5": {
-                    MainMenu menu = new MainMenu();
-                    menu.startActions();
+                    MainMenu.startActions();
                     break;
                 }
                 default:
