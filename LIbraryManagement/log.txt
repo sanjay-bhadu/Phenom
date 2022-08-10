@@ -1,0 +1,344 @@
+2022-08-10 14:28:35.268  INFO 32881 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 32881 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:28:35.273  INFO 32881 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:28:35.801  INFO 32881 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:28:35.836  INFO 32881 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:28:36.327  INFO 32881 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:28:36.333  INFO 32881 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:28:36.333  INFO 32881 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:28:36.398  INFO 32881 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:28:36.398  INFO 32881 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1076 ms
+2022-08-10 14:28:36.438  WARN 32881 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:28:36.478  INFO 32881 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:28:36.654  INFO 32881 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:28:36.689  INFO 32881 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:28:36.727  INFO 32881 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:28:36.844  INFO 32881 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:28:36.930  INFO 32881 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:28:37.293  INFO 32881 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:28:37.298  INFO 32881 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:28:37.310 ERROR 32881 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:28:37.323 ERROR 32881 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : The specified resolver org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper could NOT be loaded. Keycloak is unconfigured and will deny all requests. Reason: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'keycloakConfigResolver': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:28:37.327  INFO 32881 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-10 14:28:37.329  WARN 32881 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:28:37.330  WARN 32881 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:28:37.331  WARN 32881 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2022-08-10 14:28:37.331  INFO 32881 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:28:37.332  INFO 32881 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:28:37.338  INFO 32881 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:28:37.344  INFO 32881 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-10 14:28:37.354 ERROR 32881 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌──->──┐
+|  securityConfig (field private org.keycloak.adapters.KeycloakConfigResolver org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter.keycloakConfigResolver)
+└──<-──┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2022-08-10 14:29:07.406  INFO 33023 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 33023 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:29:07.408  INFO 33023 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:29:07.864  INFO 33023 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:29:07.900  INFO 33023 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:29:08.392  INFO 33023 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:29:08.406  INFO 33023 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:29:08.406  INFO 33023 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:29:08.466  INFO 33023 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:29:08.466  INFO 33023 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1020 ms
+2022-08-10 14:29:08.510  WARN 33023 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:29:08.551  INFO 33023 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:29:08.738  INFO 33023 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:29:08.766  INFO 33023 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:29:08.812  INFO 33023 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:29:08.911  INFO 33023 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:29:08.991  INFO 33023 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:29:09.354  INFO 33023 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:29:09.360  INFO 33023 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:29:09.374 ERROR 33023 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:29:09.387 ERROR 33023 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : The specified resolver org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper could NOT be loaded. Keycloak is unconfigured and will deny all requests. Reason: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'keycloakConfigResolver': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:29:09.392  INFO 33023 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-10 14:29:09.394  WARN 33023 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:29:09.395  WARN 33023 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:29:09.396  WARN 33023 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2022-08-10 14:29:09.396  INFO 33023 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:29:09.398  INFO 33023 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:29:09.407  INFO 33023 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:29:09.414  INFO 33023 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-10 14:29:09.427 ERROR 33023 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌──->──┐
+|  securityConfig (field private org.keycloak.adapters.KeycloakConfigResolver org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter.keycloakConfigResolver)
+└──<-──┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2022-08-10 14:29:53.469  INFO 33155 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 33155 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:29:53.473  INFO 33155 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:29:54.203  INFO 33155 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:29:54.245  INFO 33155 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:29:54.863  INFO 33155 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:29:54.871  INFO 33155 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:29:54.872  INFO 33155 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:29:54.953  INFO 33155 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:29:54.954  INFO 33155 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1406 ms
+2022-08-10 14:29:55.005  WARN 33155 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:29:55.049  INFO 33155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:29:55.246  INFO 33155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:29:55.282  INFO 33155 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:29:55.320  INFO 33155 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:29:55.435  INFO 33155 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:29:55.587  INFO 33155 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:29:55.992  INFO 33155 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:29:55.997  INFO 33155 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:29:56.011 ERROR 33155 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:29:56.025 ERROR 33155 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : The specified resolver org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper could NOT be loaded. Keycloak is unconfigured and will deny all requests. Reason: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'keycloakConfigResolver': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:29:56.030  INFO 33155 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-10 14:29:56.032  WARN 33155 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:29:56.033  WARN 33155 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:29:56.034  WARN 33155 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2022-08-10 14:29:56.034  INFO 33155 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:29:56.036  INFO 33155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:29:56.044  INFO 33155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:29:56.053  INFO 33155 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-10 14:29:56.064 ERROR 33155 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌──->──┐
+|  securityConfig (field private org.keycloak.adapters.KeycloakConfigResolver org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter.keycloakConfigResolver)
+└──<-──┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2022-08-10 14:30:26.369  INFO 33296 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 33296 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:30:26.375  INFO 33296 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:30:27.112  INFO 33296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:30:27.160  INFO 33296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:30:27.864  INFO 33296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:30:27.880  INFO 33296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:30:27.881  INFO 33296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:30:28.062  INFO 33296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:30:28.063  INFO 33296 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1615 ms
+2022-08-10 14:30:28.165  WARN 33296 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:30:28.265  INFO 33296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:30:28.653  INFO 33296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:30:28.755  INFO 33296 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:30:28.842  INFO 33296 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:30:29.122  INFO 33296 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:30:29.315  INFO 33296 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:30:30.181  INFO 33296 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:30:30.192  INFO 33296 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:30:30.223 ERROR 33296 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:30:30.258 ERROR 33296 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : The specified resolver org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper could NOT be loaded. Keycloak is unconfigured and will deny all requests. Reason: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'keycloakConfigResolver': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-08-10 14:30:30.268  INFO 33296 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-10 14:30:30.272  WARN 33296 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:30:30.273  WARN 33296 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:30:30.275  WARN 33296 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2022-08-10 14:30:30.276  INFO 33296 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:30:30.279  INFO 33296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:30:30.292  INFO 33296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:30:30.307  INFO 33296 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-10 14:30:30.330 ERROR 33296 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌──->──┐
+|  securityConfig (field private org.keycloak.adapters.KeycloakConfigResolver org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter.keycloakConfigResolver)
+└──<-──┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2022-08-10 14:31:17.782  INFO 33473 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 33473 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:31:17.787  INFO 33473 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:31:18.888  INFO 33473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:31:18.963  INFO 33473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:31:19.988  INFO 33473 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:31:20.005  INFO 33473 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:31:20.005  INFO 33473 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:31:20.163  INFO 33473 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:31:20.164  INFO 33473 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2274 ms
+2022-08-10 14:31:20.281  WARN 33473 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:31:20.375  INFO 33473 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:31:20.694  INFO 33473 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:31:20.758  INFO 33473 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:31:20.844  INFO 33473 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:31:21.079  INFO 33473 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:31:21.221  INFO 33473 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:31:21.979  INFO 33473 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:31:21.989  INFO 33473 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:31:22.962  INFO 33473 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e38d44e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c25123e, org.springframework.security.web.context.SecurityContextPersistenceFilter@58945295, org.springframework.security.web.header.HeaderWriterFilter@42d7e8bc, org.springframework.security.web.csrf.CsrfFilter@18a38bba, org.springframework.security.web.authentication.logout.LogoutFilter@89465d9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6839d03b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9f52eb7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f5c0eda, org.springframework.security.web.session.SessionManagementFilter@357cdb00, org.springframework.security.web.access.ExceptionTranslationFilter@3c8e4a82, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dc39412]
+2022-08-10 14:31:23.429  INFO 33473 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2022-08-10 14:31:23.445  INFO 33473 --- [main] c.e.userDefined.UserDefinedApplication   : Started UserDefinedApplication in 6.438 seconds (JVM running for 7.164)
+2022-08-10 14:32:40.561  INFO 33473 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:32:40.565  INFO 33473 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:32:40.580  INFO 33473 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:32:45.455  INFO 33696 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 33696 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:32:45.461  INFO 33696 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:32:46.527  INFO 33696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:32:46.606  INFO 33696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:32:47.722  INFO 33696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:32:47.737  INFO 33696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:32:47.738  INFO 33696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:32:47.925  INFO 33696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:32:47.926  INFO 33696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2359 ms
+2022-08-10 14:32:48.030  WARN 33696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:32:48.111  INFO 33696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:32:48.510  INFO 33696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:32:48.587  INFO 33696 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:32:48.670  INFO 33696 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:32:48.937  INFO 33696 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:32:49.093  INFO 33696 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:32:49.893  INFO 33696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:32:49.903  INFO 33696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:32:50.861  INFO 33696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7615666e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c49e434, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fd4b9ec, org.springframework.security.web.header.HeaderWriterFilter@32e5fb4c, org.springframework.security.web.csrf.CsrfFilter@70a54731, org.springframework.security.web.authentication.logout.LogoutFilter@3462e99a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c8e4a82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c0fe6c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32b1e906, org.springframework.security.web.session.SessionManagementFilter@1d3e5a05, org.springframework.security.web.access.ExceptionTranslationFilter@7f9e6167, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d75940]
+2022-08-10 14:32:51.334  INFO 33696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2022-08-10 14:32:51.355  INFO 33696 --- [main] c.e.userDefined.UserDefinedApplication   : Started UserDefinedApplication in 6.646 seconds (JVM running for 7.421)
+2022-08-10 14:33:49.729  INFO 33696 --- [http-nio-9000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-10 14:33:49.729  INFO 33696 --- [http-nio-9000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-10 14:33:49.731  INFO 33696 --- [http-nio-9000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-08-10 14:46:03.054  INFO 33696 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:46:03.056  INFO 33696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:46:03.064  INFO 33696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-10 14:46:05.719  INFO 35066 --- [main] c.e.userDefined.UserDefinedApplication   : Starting UserDefinedApplication using Java 17.0.4 on PPH-LAP-01339 with PID 35066 (/home/sanjaybhadu/LIbraryManagement/librarymanagement/target/classes started by sanjaybhadu in /home/sanjaybhadu/LIbraryManagement)
+2022-08-10 14:46:05.721  INFO 35066 --- [main] c.e.userDefined.UserDefinedApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 14:46:06.276  INFO 35066 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 14:46:06.308  INFO 35066 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
+2022-08-10 14:46:06.751  INFO 35066 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-08-10 14:46:06.758  INFO 35066 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 14:46:06.758  INFO 35066 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-10 14:46:06.819  INFO 35066 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 14:46:06.819  INFO 35066 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1049 ms
+2022-08-10 14:46:06.859  WARN 35066 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 14:46:06.896  INFO 35066 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 14:46:07.043  INFO 35066 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 14:46:07.075  INFO 35066 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 14:46:07.100  INFO 35066 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-10 14:46:07.184  INFO 35066 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 14:46:07.254  INFO 35066 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-10 14:46:07.597  INFO 35066 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 14:46:07.603  INFO 35066 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:46:08.080  INFO 35066 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@97cb8dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@261b6c8c, org.springframework.security.web.context.SecurityContextPersistenceFilter@6dfebd2a, org.springframework.security.web.header.HeaderWriterFilter@261f5a45, org.springframework.security.web.csrf.CsrfFilter@703e5614, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@40b70f31, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@4bdef487, org.springframework.security.web.authentication.logout.LogoutFilter@64e3bc2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bb0fa38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6fdd3382, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@780546f8, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@b3004e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dcbf825, org.springframework.security.web.session.SessionManagementFilter@6d41200c, org.springframework.security.web.access.ExceptionTranslationFilter@67d8613, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33563147]
+2022-08-10 14:46:08.307  INFO 35066 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2022-08-10 14:46:08.315  INFO 35066 --- [main] c.e.userDefined.UserDefinedApplication   : Started UserDefinedApplication in 2.93 seconds (JVM running for 3.357)
+2022-08-10 14:46:17.723  INFO 35066 --- [http-nio-9000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-10 14:46:17.724  INFO 35066 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-10 14:46:17.725  INFO 35066 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-10 14:46:17.915  INFO 35066 --- [http-nio-9000-exec-2] o.keycloak.adapters.KeycloakDeployment   : Loaded URLs from http://localhost:8100/realms/SpringBoot/.well-known/openid-configuration
+2022-08-10 14:46:42.148  INFO 35066 --- [http-nio-9000-exec-4] c.e.u.Controller.BookController          : All Books has been accessed
+2022-08-10 14:58:18.213  INFO 35066 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 14:58:18.218  INFO 35066 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-10 14:58:18.234  INFO 35066 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
